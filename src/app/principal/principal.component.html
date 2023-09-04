@@ -1,1 +1,11 @@
-<p>principal works!</p>
+<div class="w-full h-screen bg-blue-200">
+    <p-megaMenu [model]="items" styleClass="flex">
+        <ng-template pTemplate="start">
+            <img src="assets/imagenes/medico_login.png" height="40" class="mr-2" />
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" pInputText placeholder="Search" />
+        </ng-template>
+    </p-megaMenu>
+    <router-outlet></router-outlet>
+</div>

@@ -14,6 +14,7 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import { PrincipalComponent } from './principal/principal.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Error404Component } from './views/error404/error404.component';
+import { MegaMenuModule } from 'primeng/megamenu';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { Error404Component } from './views/error404/error404.component';
     InputTextModule,
     ButtonModule,
     SplitButtonModule,
-    SpeedDialModule
+    SpeedDialModule,
+    MegaMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+<p-card>
+    <ng-template pTemplate="header">
+        <div class="flex flex-wrap justify-content-between bg-cyan-800 border-round-top">
+            <div class="text-white font-semibold text-2xl p-3">
+                Pacientes
+            </div>
+        </div>
+    </ng-template>
+    <div class="card flex flex-column md:flex-row md:justify-content-between row-gap-3">
+        <input type="text" pInputText placeholder="Buscar" />
+        <p-button label="Agregar Paciente" icon="pi pi-plus" styleClass="p-button-sm p-button-success" [routerLink]="['/administracion/pacientes']" ></p-button>
+    </div>
+    <p-divider></p-divider>
+</p-card>

@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
 
+html {
+    font-size: 14px;
+}
 html, body { height: 100%; }
 /*body {  font-family: Roboto, "Helvetica Neue", sans-serif; }*/
 body {

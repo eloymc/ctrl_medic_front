@@ -1,0 +1,25 @@
+<p-card>
+    <ng-template pTemplate="header">
+        <div class="flex flex-wrap justify-content-between bg-cyan-800 border-round-top">
+            <div class="text-white font-semibold text-2xl p-3">
+                Citas
+            </div>
+        </div>
+    </ng-template>
+    <div class="card flex flex-column md:flex-row md:justify-content-between row-gap-3">
+        <p-selectButton [options]="options" [(ngModel)]="selection" optionLabel="label" optionValue="value"></p-selectButton>
+        <p-button label="Agregar Consulta" icon="pi pi-plus" styleClass="p-button-sm p-button-success" ></p-button>
+    </div>
+    <p-divider></p-divider>
+    <h3 class="text-primary">Domingo 17/09/2023</h3>
+    <p-divider></p-divider>
+    <div class="grid" *ngFor="let event of events">
+        <div class="col-1 text-right">
+            <i class="pi pi-chevron-right"></i>
+        </div>
+        <div class="col-11">
+            <div class="col-12 font-semibold text-700">02:49 PM</div>
+            <div class="col-12 font-semibold text-700">Samuel Morales Quezada / 8 años</div>
+        </div>
+    </div>
+</p-card>

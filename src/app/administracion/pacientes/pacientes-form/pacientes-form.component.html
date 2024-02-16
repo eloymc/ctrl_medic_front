@@ -1,0 +1,176 @@
+
+<div class="grid">
+    <p-card class="col-12 flex justify-content-center">
+        <ng-template pTemplate="header">
+            <div class="flex flex-wrap justify-content-between bg-cyan-800 border-round-top">
+                <div class="text-white font-semibold text-2xl p-3">
+                    Paciente
+                </div>
+            </div>
+        </ng-template>
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="nombre">Nombre(s)</label>
+                <input id="nombre" [(ngModel)]="paciente.nombre" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+            <div class="field col">
+                <label for="apellido_p">Apellido Paterno</label>
+                <input id="apellido_p" [(ngModel)]="paciente.apellido_paterno" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+            <div class="field col">
+                <label for="apellido_m">Apellido Materno</label>
+                <input id="apellido_m" [(ngModel)]="paciente.apellido_materno" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                <p-calendar 
+                id="fecha_nacimiento" 
+                (onSelect)="dameEdad()"
+                (keyup.enter)="dameEdad()"
+                dateFormat="dd/mm/yy"
+                class="text-base text-color surface-overlay p-2 appearance-none outline-none focus:border-primary w-full"
+                [(ngModel)]="paciente.fecha_nacimiento"  
+                ></p-calendar>
+                {{edad}} años
+            </div>
+            <div class="field col ">
+                <label for="genero" class="col-fixed" style="width:180px">Genero</label>
+                <p-selectButton [options]="generoOptions" [(ngModel)]="paciente.genero" optionLabel="label" optionValue="value"></p-selectButton>
+            </div>
+        </div>
+        <p-divider></p-divider>
+        
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="pais">País</label>
+                <p-dropdown 
+                    [options]="paises" 
+                    [(ngModel)]="paciente.direccion.pais" 
+                    optionLabel="translations.es" 
+                    optionValue="alpha2Code" 
+                    [filter]="true" 
+                    filterBy="translations.es" 
+                    [showClear]="true" 
+                    placeholder="Seleccione un pais"
+                    class="text-base text-color surface-overlay p-2 appearance-none outline-none focus:border-primary w-full"
+                    
+                    >
+                </p-dropdown>
+            </div>
+            <div class="field col">
+                <label for="cp">C.P.</label>
+                <input id="cp" [(ngModel)]="paciente.direccion.cp" (keyup)="traerCP()" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+            <div class="field col">
+                <label for="estado">Estado</label>
+                <input id="estado" [(ngModel)]="paciente.direccion.estado" [disabled]="true" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                <p-calendar 
+                id="fecha_nacimiento" 
+                (onSelect)="dameEdad()"
+                (keyup.enter)="dameEdad()"
+                dateFormat="dd/mm/yy"
+                class="text-base text-color surface-overlay p-2 appearance-none outline-none focus:border-primary w-full"
+                [(ngModel)]="paciente.fecha_nacimiento"  
+                ></p-calendar>
+                {{edad}} años
+            </div>
+            <div class="field col ">
+                <label for="genero" class="col-fixed" style="width:180px">Genero</label>
+                <p-selectButton [options]="generoOptions" [(ngModel)]="paciente.genero" optionLabel="label" optionValue="value"></p-selectButton>
+            </div>
+        </div>
+    </p-card>
+    <div class="col-12 flex justify-content-center">
+        <p-card class="w-10" header="Paciente">
+            <div class="formgrid grid">
+                <div class="field col">
+                    <label for="nombre">Nombre(s)</label>
+                    <input id="nombre" [(ngModel)]="paciente.nombre" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col">
+                    <label for="apellido_p">Apellido Paterno</label>
+                    <input id="apellido_p" [(ngModel)]="paciente.apellido_paterno" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col">
+                    <label for="apellido_m">Apellido Materno</label>
+                    <input id="apellido_m" [(ngModel)]="paciente.apellido_materno" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+            </div>
+            <div class="formgrid grid">
+                <div class="field col">
+                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                    <p-calendar 
+                    id="fecha_nacimiento" 
+                    (onSelect)="dameEdad()"
+                    (keyup.enter)="dameEdad()"
+                    dateFormat="dd/mm/yy"
+                    class="text-base text-color surface-overlay p-2 appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="paciente.fecha_nacimiento"  
+                    ></p-calendar>
+                    {{edad}} años
+                </div>
+                <div class="field col ">
+                    <label for="genero" class="col-fixed" style="width:180px">Genero</label>
+                    <p-selectButton [options]="generoOptions" [(ngModel)]="paciente.genero" optionLabel="label" optionValue="value"></p-selectButton>
+                </div>
+            </div>
+            
+        </p-card>
+    </div>
+    <div class="col-12 flex justify-content-center">
+        <p-card class="w-10" header="Dirección">
+            <div class="formgrid grid">
+                <div class="field col">
+                    <label for="pais">País</label>
+                    <p-dropdown 
+                        [options]="paises" 
+                        [(ngModel)]="paciente.direccion.pais" 
+                        optionLabel="translations.es" 
+                        optionValue="alpha2Code" 
+                        [filter]="true" 
+                        filterBy="translations.es" 
+                        [showClear]="true" 
+                        placeholder="Seleccione un pais"
+                        class="text-base text-color surface-overlay p-2 appearance-none outline-none focus:border-primary w-full"
+                        
+                        >
+                    </p-dropdown>
+                </div>
+                <div class="field col">
+                    <label for="cp">C.P.</label>
+                    <input id="cp" [(ngModel)]="paciente.direccion.cp" (keyup)="traerCP()" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+                <div class="field col">
+                    <label for="estado">Estado</label>
+                    <input id="estado" [(ngModel)]="paciente.direccion.estado" [disabled]="true" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                </div>
+            </div>
+            <div class="formgrid grid">
+                <div class="field col">
+                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                    <p-calendar 
+                    id="fecha_nacimiento" 
+                    (onSelect)="dameEdad()"
+                    (keyup.enter)="dameEdad()"
+                    dateFormat="dd/mm/yy"
+                    class="text-base text-color surface-overlay p-2 appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="paciente.fecha_nacimiento"  
+                    ></p-calendar>
+                    {{edad}} años
+                </div>
+                <div class="field col ">
+                    <label for="genero" class="col-fixed" style="width:180px">Genero</label>
+                    <p-selectButton [options]="generoOptions" [(ngModel)]="paciente.genero" optionLabel="label" optionValue="value"></p-selectButton>
+                </div>
+            </div>
+            
+        </p-card>
+    </div>
+</div>
